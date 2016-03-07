@@ -1,0 +1,44 @@
+body{
+	/*background-color: white*/
+}
+table{
+	/*margin: 0 auto;*/
+	border:1px solid #ccc;
+	padding: 5px;
+	text-align: center;
+	border-collapse: collapse; 
+}
+
+table th{
+	padding:5px;
+	font-weight: bold;
+}
+
+table td {
+	color:#222;
+	padding:10px;
+
+}
+tr:hover {
+	background-color: rgba(204, 204, 204, 0.66);
+}
+tr.border_bottom  {
+	border-bottom:1px solid #ccc;
+}
+h1{ text-align: center;}
+
+.new-expense{
+	float: left;
+	width: 40%;
+	border:1px dashed #ccc;
+}
+form{ 
+	margin: 20px;
+}
+.expense-list{
+	float: left;
+}
+
+
+
+
