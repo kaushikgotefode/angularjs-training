@@ -1,0 +1,130 @@
+<html>
+
+<head>
+    <title> Angular Application</title>
+    <link rel="stylesheet" type="text/css" href="assignments/css/style.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/ng-datepicker/src/css/ngDatepicker.css">
+</head>
+
+<body ng-app="myApp">
+    <h1>Expense Manager</h1>
+    <div ng-controller="ExpenseController">
+        <!-- <div class="new-expense">
+            
+            <form>
+                <h2>Add New Data</h2>
+                <label for="exp-type"><strong>Type:</strong></label>
+                <input type="radio" value="Expence" ng-model="type"> Expence
+                <input type="radio" value="Income" ng-model="type"> Income
+                <br><br>
+                <label for="exp-payer"><strong>Payer:</strong></label>
+                <input type="text" id="exp-payer" ng-model="payer" />
+                <br><br>
+                <label for="exp-payee"><strong>Payee:</strong></label>
+                <input type="text" id="exp-payee" ng-model="payee" />
+                <br><br>
+                <label for="exp-amount"><strong>Amount:</strong></label>
+                <input type="number" id="exp-amount" ng-model="amount" />
+                <br><br>
+                <label for="exp-date"><strong>Date:</strong>
+                <input type="text" id="exp-date" ng-model="date" />
+                <ng-datepicker ng-model="date">
+                </ng-datepicker>
+                </label>
+                <br><br>
+                <label for="exp-payment-mode"><strong>ModeOfPayment:</strong></label>
+                
+                <select type="text" id="exp-payment-mode" ng-model="paymentMode" >
+                    <option value="">Select Payment Mode</option>
+                    <option value="Cash">Cash</option>
+                    <option vlaue="electronic-transfer">Electronic Transfer</option>
+                    <option value="Credit Card">Credit Card</option>
+                </select>
+                <br><br>
+                <label for="exp-note"><strong>Note:</strong></label>
+                <input type="textArea" id="exp-note" ng-model="notes" />
+                <br><br>
+                <button ng-click="addNewData()">Add New Data</button>
+            </form>
+        </div> -->
+        <div class='expense-list'>
+            <button class="btn-expense" ng-click="showExpense()">Expense</button>
+            <button class="btn-income" ng-click="showIncome()">Income</button>
+            <button class="btn-all" ng-click="showTransection()">All</button>
+            <table>
+                <thead>
+                    <tr class="border_bottom">
+                        <th>Payer</th>
+                        <th>Payee</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>ModeOfPayment</th>
+                        <th>Notes</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transaction in localTransection | filter:{type:typeFilter}" class="border_bottom">
+                        <div>
+                        <td>{{transaction.payer}}</td>
+                        <td>{{transaction.payee}}</td>
+                        <td>{{transaction.amount | currency}}</td>
+                        <td>{{transaction.date | date:'MMMM dd, yyyy'}}</td>
+                        <td>{{transaction.modeOfPayment}}</td>
+                        <td>{{transaction.notes | limitTo:'10'}}</td>
+                        <td>{{transaction.type}}</td>
+                        <td>
+                            <button ng-click="editData($index)">Edit</button>
+                        </td>
+                    </div>
+                    </tr>
+                    <tr ng-show="addData">
+                        <form >
+                        <td>
+                            <input type="text" ng-model="payer" >
+                        </td>
+                        <td>
+                            <input type="text" ng-model="payee" >
+                        </td>
+                        <td>
+                            <input type="number" ng-model="amount" >
+                        </td>
+                        <td>
+                            <input type="date" ng-model="date" >
+                        </td>
+                        <td>
+                            <select type="text" id="exp-payment-mode" ng-model="paymentMode" >
+                                <option value="">Select Payment Mode</option>
+                                <option value="Cash">Cash</option>
+                                <option vlaue="electronic-transfer">Electronic Transfer</option>
+                                <option value="Credit Card">Credit Card</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" ng-model="notes">
+                        </td>
+                        <td>
+                            <select type="text" id="exp-payment-mode" ng-model="type" >
+                                <option value="">Select Type</option>
+                                <option value="Expense">Expense</option>
+                                <option vlaue="Income">Income</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="submit" value="Add" ng-click="addNewData()"  >
+                        </td>
+                    </tr>
+                </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="assignments/js/libs/angular.min.js"></script>
+    <script type="text/javascript" src="node_modules/moment/min/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="node_modules/ng-datepicker/src/js/ngDatepicker.min.js"></script>
+    <script type="text/javascript" src="assignments/js/app/app.js"></script>
+</body>
+
+</html>

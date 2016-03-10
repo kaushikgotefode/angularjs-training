@@ -2,7 +2,7 @@ body{
 	/*background-color: white*/
 }
 table{
-	/*margin: 0 auto;*/
+	margin: 0 auto;
 	border:1px solid #ccc;
 	padding: 5px;
 	text-align: center;
@@ -19,6 +19,9 @@ table td {
 	padding:10px;
 
 }
+tr:nth-child(even){
+	background: #90EE90
+}
 tr:hover {
 	background-color: rgba(204, 204, 204, 0.66);
 }
@@ -27,18 +30,18 @@ tr.border_bottom  {
 }
 h1{ text-align: center;}
 
-.new-expense{
+/*.new-expense{
 	float: left;
 	width: 40%;
 	border:1px dashed #ccc;
 }
 form{ 
 	margin: 20px;
-}
-.expense-list{
+}*/
+/*.expense-list{
 	float: left;
 }
-
+*/
 
 
 
